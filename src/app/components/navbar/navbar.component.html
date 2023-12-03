@@ -1,0 +1,7 @@
+<mat-toolbar style="background-color: teal; color: #fff;">
+    <h1>Policy Management</h1>
+    <button mat-button *ngIf="LoggedIn" style="margin-left: 50px;" routerLink="/home">Home</button>
+    <button mat-button *ngIf="LoggedIn && IsAdmin" style="margin-left: 50px;" routerLink="/policy">New Policy</button>
+    <span class="example-spacer"></span>
+    <button mat-button *ngIf="LoggedIn" color="accent" (click)="logoutUser()">Logout</button>
+</mat-toolbar>

@@ -1,0 +1,133 @@
+<mat-dialog-content class="mat-typography" style="text-align: center;">
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="credentials">
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Enter Policy Name
+            </mat-label>
+            <input formControlName="policyName" required matInput type="text">
+            <mat-error *ngIf="policyName!.hasError('required')">Policy Name required</mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Enter Policy Start Date
+            </mat-label>
+            <input formControlName="startDate" required matInput type="date">
+            <mat-error *ngIf="startDate!.hasError('required')">Start Date required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Enter Duration of policy
+            </mat-label>
+            <input formControlName="durationInYears" required matInput type="number">
+            <mat-error
+                *ngIf="(durationInYears!.hasError('min') || durationInYears!.hasError('max')) && !durationInYears!.hasError('required')">
+                Enter valid duration(10-50)</mat-error>
+            <mat-error *ngIf="durationInYears!.hasError('required')">Duration required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Enter Company Name
+            </mat-label>
+            <input formControlName="companyName" required matInput type="text">
+            <mat-error *ngIf="companyName!.hasError('required')">Company Name required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Enter amount
+            </mat-label>
+            <input formControlName="amount" required matInput type="number">
+            <mat-error *ngIf="(amount!.hasError('min') || amount!.hasError('max')) && !amount!.hasError('required')">
+                enter valid amount</mat-error>
+            <mat-error *ngIf="amount!.hasError('required')">Amount required</mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Enter Policy Type
+            </mat-label>
+            <mat-select formControlName="policyType">
+                <mat-option value="VehicleInsurance">Vehicle Insurance</mat-option>
+                <mat-option value="TravelInsurance">Travel Insurance</mat-option>
+                <mat-option value="LifeInsurance">Life Insurance</mat-option>
+                <mat-option value="HealthInsurance">Health Insurance</mat-option>
+                <mat-option value="ChildPlans">Child Plans</mat-option>
+                <mat-option value="RetirementPlans">Retirement Plans</mat-option>
+            </mat-select>
+            <mat-error *ngIf="policyType!.hasError('required')">Policy Type required</mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Enter User Type
+            </mat-label>
+            <mat-select formControlName="userTypes">
+                <mat-option value="A">Salary Less than 5 LPA</mat-option>
+                <mat-option value="B">Salary 5-10 LPA</mat-option>
+                <mat-option value="C">Salary 10-15 LPA</mat-option>
+                <mat-option value="D">Salary 15-30 LPA</mat-option>
+                <mat-option value="E">Salary More than 30 LPA</mat-option>
+            </mat-select>
+            <mat-error *ngIf="userTypes!.hasError('required')">User Type required</mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Enter Terms Per Year
+            </mat-label>
+            <mat-select formControlName="termsPerYear">
+                <mat-option value=1>Yearly</mat-option>
+                <mat-option value=2>Half Yearly</mat-option>
+                <mat-option value=4>Quaterly</mat-option>
+                <mat-option value=12>Monthly</mat-option>
+            </mat-select>
+            <mat-error
+                *ngIf="(termsPerYear!.hasError('min') || termsPerYear!.hasError('max')) && !termsPerYear!.hasError('required')">
+                enter valid terms</mat-error>
+            <mat-error *ngIf="termsPerYear!.hasError('required')">terms required</mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Enter Terms Amount
+            </mat-label>
+            <input formControlName="termAmount" required matInput type="number">
+            <mat-error
+                *ngIf="(termAmount!.hasError('min') || termAmount!.hasError('max')) && !termAmount!.hasError('required')">
+                enter valid amount</mat-error>
+            <mat-error *ngIf="termAmount!.hasError('required')">term amount required</mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Enter Interest
+            </mat-label>
+            <input formControlName="interest" required matInput type="number">
+            <mat-error
+                *ngIf="(interest!.hasError('min') || interest!.hasError('max')) && !interest!.hasError('required')">
+                enter valid interest</mat-error>
+            <mat-error *ngIf="interest!.hasError('required')">interest required</mat-error>
+        </mat-form-field>
+
+
+        <button mat-raised-button color="primary" type="submit" style="width: 50%;margin-top: 20px;"
+            [disabled]="!credentials.valid">register</button>
+
+
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+</mat-dialog-actions>

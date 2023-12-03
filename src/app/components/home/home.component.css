@@ -1,0 +1,66 @@
+.mat-column-id {
+    width: 8px;
+    /* border-right: 1px solid currentColor; */
+    padding-right: 2px;
+    /* text-align: center; */
+}
+
+.mat-column-policyName {
+    width: 8px;
+    /* border-right: 1px solid currentColor; */
+    padding-right: 2px;
+    /* text-align: center; */
+}
+.mat-column-amount {
+    width: 8px;
+    /* border-right: 1px solid currentColor; */
+    padding-right: 2px;
+    /* text-align: center; */
+}
+
+.mat-column-companyName {
+    width: 8px;
+    /* border-right: 1px solid currentColor; */
+    padding-right: 2px;
+    /* text-align: center; */
+}
+.mat-column-durationInYears {
+    width: 8px;
+    /* border-right: 1px solid currentColor; */
+    padding-right: 2px;
+    /* text-align: center; */
+}
+.mat-column-interest{
+    width: 8px;
+    /* border-right: 1px solid currentColor; */
+    padding-right: 2px;
+    /* text-align: center; */
+}
+
+.mat-column-policyType {
+    width: 8px;
+    /* border-right: 1px solid currentColor; */
+    padding-right: 2px;
+    /* text-align: center; */
+}
+
+.mat-column-startDate {
+    width: 8px;
+    /* border-right: 1px solid currentColor; */
+    padding-right: 2px;
+    /* text-align: center; */
+}
+
+table {
+    width: 100%;
+}
+
+mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+/* td,
+th {
+    width: 10%;
+} */
