@@ -82,7 +82,8 @@ export class DialogComponent implements OnInit{
 
     this.policyService.update(this.data.id, this.credentials.value).subscribe(
       (response: any) => {
-        this.router.navigate(['/home']);
+        location.reload();
+        // this.router.navigate(['/home']);
         // window.location.href = '/home';
         console.log(response);
       },
