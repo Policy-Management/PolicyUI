@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class LoginService {
 
-  baseUrl = 'http://localhost:8080';
+  baseUrl = 'https://pqu928rc3j.execute-api.ap-south-1.amazonaws.com/Prod';
   cred: any;
 
   constructor(private http: HttpClient) { }
