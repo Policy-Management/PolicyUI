@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginService } from '../../services/login.service';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,7 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit{
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void { }
 
@@ -43,7 +43,8 @@ export class LoginComponent implements OnInit{
         console.log(response);
         localStorage.setItem('token', response.token);
         localStorage.setItem('role', response.role);
-        window.location.href = '/home';
+        this.router.navigate(['/home']);
+        // window.location.href = '/PolicyUI/home';
       },
       (error) => {
         console.log(error);

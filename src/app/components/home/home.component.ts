@@ -12,6 +12,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { NavbarComponent } from '../navbar/navbar.component';
 export interface credentials {
   policyName: string,
   startDate: string,
@@ -28,7 +29,7 @@ export interface credentials {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, MatPaginatorModule, MatSortModule, MatTableModule, MatIconModule, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatButtonModule],
+  imports: [CommonModule, MatPaginatorModule, MatSortModule, MatTableModule, MatIconModule, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatButtonModule, NavbarComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

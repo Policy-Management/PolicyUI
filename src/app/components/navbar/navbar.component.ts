@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginService } from '../../services/login.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 
 @Component({
@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit{
   LoggedIn = false;
   IsAdmin = false;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
     this.LoggedIn = this.loginService.isLoggedIn();
@@ -24,6 +24,7 @@ export class NavbarComponent implements OnInit{
   }
   logoutUser() {
     this.loginService.logout();
-    window.location.href = '/';
+    this.router.navigate(['/']);
+    // window.location.href = '/';
   }
 }

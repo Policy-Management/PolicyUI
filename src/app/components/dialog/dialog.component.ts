@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { PolicyService } from '../../services/policy.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dialog',
   standalone: true,
@@ -23,7 +24,7 @@ export class DialogComponent implements OnInit{
   }
 
   constructor(private policyService: PolicyService, public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any, private router: Router) { }
 
   // constructor(private policyService: PolicyService, public dialogRef: MatDialogRef<DialogComponent>,
   //   @Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -81,7 +82,8 @@ export class DialogComponent implements OnInit{
 
     this.policyService.update(this.data.id, this.credentials.value).subscribe(
       (response: any) => {
-        window.location.href = '/home';
+        this.router.navigate(['/home']);
+        // window.location.href = '/home';
         console.log(response);
       },
       (error) => {

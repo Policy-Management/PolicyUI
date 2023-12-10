@@ -6,16 +6,18 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-policy',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatButtonModule],
+  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatButtonModule, NavbarComponent],
   templateUrl: './policy.component.html',
   styleUrl: './policy.component.css'
 })
 export class PolicyComponent {
-  constructor(private policyService: PolicyService) { }
+  constructor(private policyService: PolicyService, private router: Router) { }
 
   ngOnInit(): void { }
 
@@ -68,7 +70,8 @@ export class PolicyComponent {
 
     this.policyService.save(this.credentials.value).subscribe(
       (response) => {
-        window.location.href = '/home';
+        this.router.navigate(['/home']);
+        // window.location.href = '/home';
         console.log(response);
       },
       (error) => {
