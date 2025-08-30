@@ -1,23 +1,36 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatFormFieldModule} from '@angular/material/form-field';
-import { MatSelectModule} from '@angular/material/select';
+import {
+  ReactiveFormsModule,
+  FormGroup,
+  FormControl,
+  Validators,
+} from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 import { LoginService } from '../../services/login.service';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatSelectModule, RouterOutlet, RouterLink, RouterLinkActive,MatInputModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    RouterLink,
+    MatInputModule,
+    MatButtonModule,
+  ],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrl: './register.component.css',
 })
 export class RegisterComponent {
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   credentials = new FormGroup({
     firstName: new FormControl('', [Validators.required]),
@@ -43,7 +56,7 @@ export class RegisterComponent {
       Validators.max(9999999999),
       // Validators.pattern('/^[1-9][0-9]*$/'),
     ]),
-    employeeType: new FormControl('', [Validators.required])
+    employeeType: new FormControl('', [Validators.required]),
   });
   public get employeeType() {
     return this.credentials.get('employeeType');
@@ -89,5 +102,4 @@ export class RegisterComponent {
       }
     );
   }
-
 }
